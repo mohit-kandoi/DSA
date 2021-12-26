@@ -3,7 +3,7 @@ package RECURSION;
 public class BinarySearch {
     public static void main(String[] args) {
 
-        int[] arr = {5,7,9,11,13,15,17,19,21};
+        int[] arr = {5,7,9,11,13,15,17,18,21};
         int target  = 23;
         int start = 0;
         int end = arr.length-1;
