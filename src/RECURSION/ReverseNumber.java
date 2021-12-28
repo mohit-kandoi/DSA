@@ -21,8 +21,8 @@ public class ReverseNumber {
         if(num%10 == num)
             return num;
         int rem = num%10;
-//        num = num/10;
-        return (int) ((rem*Math.pow(10, power))+reverse(num/10, power-1));
+        num = num/10;
+        return (int) ((rem*Math.pow(10, power))+reverse(num, power-1));
     }
 
 }
