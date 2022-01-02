@@ -13,7 +13,7 @@ public class FloorInSortedArray {
         int start = 0;
         int end = arr.length-1;
         while(start <= end){
-            int mid = (start+end)/2;
+            int mid = start + (end-start)/2;
             if (target < arr[0]) {
                 return -1;
             }

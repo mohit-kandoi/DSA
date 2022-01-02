@@ -7,12 +7,12 @@ public class BinarySearch {
         int target = 6;
         int start = 0;
         int end = arr.length-1;
-        int check = 0;
+        boolean check = false;
         while(start <= end) {
-            int mid = (start+end)/2;
+            int mid = (start+end)/2; // to optimize mid = s + (e-s)/2
             if (arr[mid] == target) {
                 System.out.println("At index number: " + mid);
-                check = 1;
+                check = true;
                 break;
             } else if (arr[mid] < target) {
                 start = mid + 1;
@@ -20,7 +20,7 @@ public class BinarySearch {
                 end = mid-1;
             }
         }
-        if(check == 0){
+        if(!check){
             System.out.println("item not found");
         }
 

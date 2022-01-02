@@ -4,7 +4,7 @@ public class CeilingInSortedArray {
     public static void main(String[] args) {
 
         int[] arr = {-2,-1,2,4,5,62,70,81,89,789};
-        int target = 800;
+        int target = 71;
         int ans = CeilingSearch(arr, target);
         System.out.println(ans);
 
@@ -13,7 +13,7 @@ public class CeilingInSortedArray {
         int start = 0;
         int end = arr.length-1;
         while(start <= end){
-            int mid = (start+end)/2;
+            int mid = start + (end-start)/2;
             if (target > arr[arr.length-1]) {
                 return -1;
             }
