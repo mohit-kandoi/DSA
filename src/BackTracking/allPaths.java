@@ -1,11 +1,8 @@
 package BackTracking;
 import java.util.Arrays;
-import java.util.ArrayList;
 
 public class allPaths {
     public static void main(String[] args) {
-        int row = 3;
-        int col = 3;
         boolean[][] maze = {
                 {true, true, true},
                 {true, true, true},
@@ -45,8 +42,6 @@ public class allPaths {
         // at this line function will be over.
         // so before function get removed, also remove the changes that were made by that function.
         maze[row][col] = true;
-
-        return;
 
     }
 
