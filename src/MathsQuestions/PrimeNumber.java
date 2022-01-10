@@ -9,7 +9,7 @@ public class PrimeNumber {
         int number = 40;
         for (int i = 1; i <= 40; i++) {
             if (isPrime(i)){
-                System.out.println(i);
+                System.out.print(i+" ");
             }
         }
 
