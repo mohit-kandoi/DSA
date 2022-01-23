@@ -35,7 +35,6 @@ public class longestSubstringWithKuniqueChar {
                 }
                 rmvIndex++;
             }
-//            map.put(s.charAt(i), map.getOrDefault(s.charAt(i),0)+1);
         }
         return maxLength;
     }
