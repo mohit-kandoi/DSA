@@ -17,16 +17,15 @@ public class longestSubstringWithKuniqueChar {
 
         for (int i = 0; i < s.length(); i++) {
 
-            if(map.size() <= k ){
-                map.put(s.charAt(i), map.getOrDefault(s.charAt(i),0)+1);
-                int count = 0;
-                if(map.size() == k){
-                    for (int item : map.values()){
-                        count = count + item;
-                    }
+            map.put(s.charAt(i), map.getOrDefault(s.charAt(i),0)+1);
+            int count = 0;
+            if(map.size() == k){
+                for (int item : map.values()){
+                    count = count + item;
                 }
-                maxLength = Math.max(count,maxLength);
             }
+            maxLength = Math.max(count,maxLength);
+
             while(map.size() > k){
                 if(map.get(s.charAt(rmvIndex)) == 1){
                     map.remove(s.charAt(rmvIndex));
