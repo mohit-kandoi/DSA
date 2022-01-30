@@ -5,7 +5,7 @@ public class InfiniteArrayBinarySearch {
     public static void main(String[] args){
 
         int[] arr = {-10,-5,-3,-1,0,1,2,3,5,6,7,15,20,36,45,55,69,79,85,96,100};
-        int target = 4;
+        int target = 15;
 
         int ans = Search(arr, target);
         System.out.println(ans);
@@ -15,9 +15,11 @@ public class InfiniteArrayBinarySearch {
         int start = 0;
         int end = 1;
         while(arr[end] < target){
-            int newS = end+1;
-            end = end + (end-start+1)*2;
-            start = newS;
+//            int newS = end+1;
+//            end = end + (end-start+1)*2;
+//            start = newS;
+            start = end+1;
+            end = end*2+1;
         }
         if(arr[end] >= target) {
             while (start <= end) {
@@ -30,8 +32,6 @@ public class InfiniteArrayBinarySearch {
                     return mid;
                 }
             }
-        }else{
-            return -1;
         }
         return -1;
     }

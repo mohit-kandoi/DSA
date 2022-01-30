@@ -3,8 +3,8 @@ package Searching;
 public class CeilingInSortedArray {
     public static void main(String[] args) {
 
-        int[] arr = {-2,-1,2,4,5,62,70,81,89,789};
-        int target = 71;
+        int[] arr = {1,2,4,6,7,8,9,10};
+        int target = 5;
         int ans = CeilingSearch(arr, target);
         System.out.println(ans);
 
@@ -25,11 +25,6 @@ public class CeilingInSortedArray {
                 end = mid - 1;
             }
         }
-        if(arr[start] > target){
-            return arr[start];
-        }
-        else {
-                return arr[start + 1];
-            }
+        return arr[start];
         }
     }

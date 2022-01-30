@@ -4,7 +4,7 @@ public class FloorInSortedArray {
     public static void main(String[] args) {
 
         int[] arr = {-2,-1,2,4,5,62,70,81,89,789};
-        int target = -3;
+        int target = 4;
         int ans = CeilingSearch(arr, target);
         System.out.println(ans);
 
@@ -14,9 +14,7 @@ public class FloorInSortedArray {
         int end = arr.length-1;
         while(start <= end){
             int mid = start + (end-start)/2;
-            if (target < arr[0]) {
-                return -1;
-            }
+
             if(arr[mid] == target){
                 return arr[mid];
             }else if(arr[mid] < target){
@@ -25,11 +23,6 @@ public class FloorInSortedArray {
                 end = mid - 1;
             }
         }
-        if(arr[start] > target){
-            return arr[start-1];
-        }else{
-            return arr[start];
-        }
-
+        return arr[end];
     }
 }
