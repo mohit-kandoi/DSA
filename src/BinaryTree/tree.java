@@ -1,5 +1,7 @@
 package BinaryTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class tree {
@@ -49,6 +51,28 @@ public class tree {
         display(node.right);
     }
 
+    // Level order traversal:
+    public static void traversal(Node node){
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(node);
+
+        while(queue.size()>0){
+            int count = queue.size();
+            for (int i = 0; i < count; i++) {
+                node = queue.remove();
+                System.out.print(node.data+" ");
+
+                if (node.left != null){
+                    queue.add(node.left);
+                }
+                if (node.right != null){
+                    queue.add(node.right);
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
 
         Integer[] arr = {50,25,12,null,null,37,30,null,null,null,75,62,null,70,null,null,87,null,null};
@@ -89,9 +113,12 @@ public class tree {
             }
         }
 //        display(root);
-        System.out.println(size(root));
-        System.out.println(sum(root));
-        System.out.println(max(root));
+//        System.out.println(size(root));
+//        System.out.println(sum(root));
+//        System.out.println(max(root));
+//
+//        traversal(root);
+        System.out.println(maxLevelSum(root));
     }
 
     public static int size(Node node){
@@ -129,5 +156,38 @@ public class tree {
          int rh = height(node.right);
          int totalH = Math.max(lh, rh)+1;
          return totalH;
+    }
+
+    public static int maxLevelSum(Node root) {
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        int max = Integer.MIN_VALUE;
+        int level = 0;
+        int ans = 0;
+        while(queue.size() > 0){
+            int count = queue.size();
+            level++;
+            int sum = 0;
+            for(int i=0; i<count; i++){
+                root = queue.remove();
+
+                sum = sum + root.data;
+
+                if(root.left != null){
+                    queue.add(root.left);
+                }
+                if(root.right != null){
+                    queue.add(root.right);
+                }
+            }
+            if(max < sum){
+                max = sum;
+                ans = level;
+            }
+        }
+        return ans;
+
     }
 }
