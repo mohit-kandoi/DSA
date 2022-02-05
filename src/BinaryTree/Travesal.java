@@ -1,5 +1,6 @@
 package BinaryTree;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Travesal {
@@ -65,9 +66,54 @@ public class Travesal {
             }
         }
 
-        traversal(root);
+//        traversal(root);
+
+        list = new ArrayList<>();
+        System.out.println(find(root, 40));
+        System.out.println(list);
     }
 
+    //Nodes K Levels Far:
+
+
+    //K level Down:
+    public static void kDown(Node node, int k){
+        if(node == null || k<0){
+            return;
+        }
+        if(k==0){
+            System.out.println(node.data);
+        }
+        kDown(node.left, k-1);
+        kDown(node.right, k-1);
+    }
+
+    //Node to Root Path Printing:
+    static ArrayList<Integer> list;
+    public static boolean find(Node node, int data){
+        if(node == null){
+            return false;
+        }
+        if(node.data == data){
+            list.add(node.data);
+            return true;
+        }
+        boolean findInLeft = find(node.left, data);
+        if (findInLeft){
+            list.add(node.data);
+            return true;
+        }
+
+        boolean findInRight = find(node.right,data);
+        if (findInRight){
+            list.add(node.data);
+            return true;
+        }
+
+        return false;
+    }
+
+    //PreOrder, InOrder, Postorder Traversal:
     public static void traversal(Node root){
         Stack<Pair> st = new Stack<>();
         Pair rtp = new Pair(root,1);
