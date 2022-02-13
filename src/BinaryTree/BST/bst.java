@@ -2,6 +2,7 @@ package BinaryTree.BST;
 
 import BinaryTree.tree;
 
+import java.util.HashSet;
 import java.util.Stack;
 
 public class bst {
@@ -71,7 +72,26 @@ public class bst {
 
         int[] arr = {12,25,37,50,62,75,87};
         Node root = constructor(arr,0,arr.length-1);
-        display(root);
+//        display(root);
+        System.out.println(min(root));
+    }
 
+    public static int max(Node node){
+        if(node.right != null) return max(node.right);
+        else return node.data;
+    }
+
+    public static int min(Node node){
+        if(node.left != null) return min(node.left);
+        else return node.data;
+    }
+
+    public static boolean find(Node node, int data){
+        if(node == null) return false;
+        if(data > node.data) return find(node.right, data);
+        else if(data < node.data) return find(node.left, data);
+        else return true;
     }
 }
+
+
